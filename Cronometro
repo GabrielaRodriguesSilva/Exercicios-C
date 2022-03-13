@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+//Revisão 01.1
+int main()
+{
+    /*CRONOMETRO 01 (sleep(1))
+    Quantos minutos deseja contar
+    00:00 , 00:01, 00:02 (2 minutos) 02:00
+    
+    */
+   
+   int total, ciclos = 0, seg = 0, min;
+   
+   printf("Quantos minutos deseja contar");
+   scanf("%d", &total);
+   total = total * 60;
+   
+   while(ciclos <= total){
+       
+        printf("%2d:%2d\n", min, seg);
+        seg++;
+        
+        if(seg % 60 == 0){
+            min++;
+            seg = 0;
+        }
+        
+        sleep(1);
+        ciclos++;
+        system("clear");
+  }
+  
+
+        
+    printf("Tempo encerrado");
+
+    return 0;
+}
