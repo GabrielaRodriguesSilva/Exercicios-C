@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int pilha[10]={};
+int topo = -1;
+
+int isFull(){
+   if( topo == 9)
+      return 1;
+    else
+      return 0;
+}
+
+int isEmpty(){
+    if ( topo == -1)
+      return 1;
+    else 
+      return 0;
+}
+
+void push(int n){
+    if(isFull()){
+      printf("Fila cheia\n");
+    }else{
+        topo++;
+        pilha[topo] = n;
+    }
+    
+}
+
+int pop(){
+    int e;
+    if(isEmpty()){
+        printf("Pilha Vazia\n");
+        return 0;
+    }else{
+        e = pilha[topo];
+        pilha[topo] = 0;
+        topo--;
+        return e;
+    }
+    return 0;
+}
+
+int top(){
+    return 0;
+}
+
+void listar(){
+    int i;
+    printf("Lista de Pilha:");
+    for(i=9; i>=0; i--){
+        printf("\n ------\n | %2d | (%d)" , pilha[1], i);
+        if(i == topo){
+            printf("<");
+        }
+    }
+    printf("\n -----\n");
+}
+
+int menu(){
+    int n;
+    printf("\n------------------");
+    printf("\nSistema de PILHA\n");
+    printf("\n1 - Inserir Valor (push)");
+    printf("\n2 - Retirar valor (pop)");
+    printf("\n3 - Exibir Pilha (todos)");
+    printf("\n4 - Valor do Topo");
+    printf("\n0 - Sair");
+    printf("\n\nEscolha uma opção: ");
+    scanf("%d" , &n);
+    return n;
+}
+
+void exibirTopo(){
+    
+}
+
+int valor(){
+    int x;
+    system("clear");
+    printf("\nEsclha um valor");
+    scanf("%d", &x);
+    return 0;
+}
+
+int main(void){
+
+  int opcao;
+  
+  do{
+      opcao = menu();
+      
+      switch(opcao){
+          
+          case 1: push(valor());        break;
+          case 2: pop();                break;
+          case 3: listar();             break;
+          case 4: exibirTopo();         break;
+          
+          case 0: printf("Obrigado por utilizar a PILHA\n");
+             
+             break;
+          default: printf("Opção inválida\n");
+      }
+  }while(opcao !=0);
+  
+  return 0;
+}
